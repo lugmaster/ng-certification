@@ -11,10 +11,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {WeatherConditionImageComponent} from './components/weather-condition-image/weather-condition-image.component';
 import {WeatherLocationInfoComponent} from './components/weather-locations/weather-location-info/weather-location-info.component';
 import {WeatherLocationsComponent} from './components/weather-locations/weather-locations.component';
+import {WeatherForecastComponent} from './components/weather-forecast/weather-forecast.component';
 
 @NgModule({
   imports:      [ BrowserModule, ReactiveFormsModule, AppRoutingModule, NgbModule, HttpClientModule ],
-  declarations: [ AppComponent, WeatherLocationsComponent, PageNotFoundComponent, WeatherLocationInfoComponent, ZipcodeFormComponent, WeatherConditionImageComponent ],
+  declarations: [ AppComponent, WeatherLocationsComponent, PageNotFoundComponent, WeatherLocationInfoComponent, ZipcodeFormComponent, WeatherConditionImageComponent, WeatherForecastComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

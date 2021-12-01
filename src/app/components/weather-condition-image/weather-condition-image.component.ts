@@ -12,6 +12,9 @@ export class WeatherConditionImageComponent implements OnInit {
     @Input()
     iconKey: string;
 
+    @Input()
+    size: number;
+
     constructor() {
     }
 

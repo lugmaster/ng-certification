@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="col-md-6">
+        <div class="panel panel-primary" *ngIf="weatherForecastContainer; else nothingFound">
+            <div class="panel-heading">
+                {{weatherForecastContainer.name + '(' + zipcode + ')'}}
+            </div>
+            <div class="panel-body">
+                <div class="row" *ngFor="let forecast of weatherForecastContainer.weatherForecasts">
+                    <div class="col-md-6 column-row">
+                        {{(forecast.dateInMilliSeconds | date:'EEEE, MMM d')
+                            + ': ' + forecast.weatherCondition
+                            + ' - High:' + forecast.maxTemperature
+                            + ' - Low:' + forecast.minTemperature
+                        }}
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <app-weather-condition-image [iconKey]="forecast.weatherConditionIcon" [size]="2"></app-weather-condition-image>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #nothingFound>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {{zipcode}} - N/A
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
