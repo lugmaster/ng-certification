@@ -12,10 +12,11 @@
                                placeholder="Add a zipcode here ..."
                                type="text">
                         <span class="input-group-btn">
-                            <button (click)="submitZipcode()" class="btn btn-primary">
-                                Add
-                            </button>
-                            </span>
+                            <button (click)="submitZipcode()" class="btn btn-primary">Add</button>
+                        </span>
+                    </div>
+                    <div style="color:red" *ngIf="zipcodeForm.dirty && zipcodeForm.invalid">
+                        Only 5 digit zipcodes allowed, e.g. 10006
                     </div>
                 </div>
             </div>

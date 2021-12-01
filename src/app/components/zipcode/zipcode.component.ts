@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
@@ -12,7 +12,6 @@ export class ZipcodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.savedZipcodes = this.lsService.loadNumbers();
-    console.log('init: ' + this.savedZipcodes);
   }
 
   constructor(private lsService: LocalStorageService) {
@@ -20,12 +19,15 @@ export class ZipcodeComponent implements OnInit {
 
   public addZipcode(zipcode: number): void {
     this.savedZipcodes = this.lsService.saveNumber(zipcode);
-    console.log('added: ' + zipcode + ' to ' + this.savedZipcodes);
   }
 
 
   public  getSavedZipcodes(): number[] {
     return this.savedZipcodes;
+  }
+
+  public removeZipCode(zipcode: number): void {
+    this.savedZipcodes = this.lsService.deleteNumber(zipcode);
   }
 
 }

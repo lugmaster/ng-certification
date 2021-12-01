@@ -13,11 +13,11 @@ export class LocalStorageService {
     public saveNumber(numberToSave: number): number[] {
         let savedNumbers = this.loadNumbers();
         savedNumbers.push(numberToSave);
-        this.saveNumbers(savedNumbers);
+        LocalStorageService.saveNumbers(savedNumbers);
         return savedNumbers;
     }
 
-    private saveNumbers(numbersToSave: number[]): void {
+    private static saveNumbers(numbersToSave: number[]): void {
         try {
             localStorage.setItem(LocalStorageService.LOCAL_STORAGE_KEY, JSON.stringify(numbersToSave));
         } catch (e) {
@@ -39,14 +39,15 @@ export class LocalStorageService {
         }
     }
 
-    public deleteNumber(numberToDelete: number): void {
+    public deleteNumber(numberToDelete: number): number[] {
         try {
             let savedNumbers = this.loadNumbers();
             let index = savedNumbers.indexOf(numberToDelete, 0);
             if (index > -1) {
                 savedNumbers.splice(index, 1);
-                this.saveNumbers(savedNumbers);
+                LocalStorageService.saveNumbers(savedNumbers);
             }
+            return savedNumbers;
         } catch (e) {
             console.error('Cannot remove ' + numberToDelete + ' from local storage', e);
         }

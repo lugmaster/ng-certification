@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {WeatherService} from '../../services/weather.service';
+import {WeatherLocation} from '../../dtos/weather-location';
 
 @Component({
   selector: 'app-weather-per-zip',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherPerZipComponent implements OnInit {
 
-  constructor() { }
+  weatherLocation: WeatherLocation;
+
+  @Input()
+  zipcode: number;
+
+  @Output()
+  weatherLocationRemovedEvent = new EventEmitter<Number>();
+
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.weatherService.getWeatherLocationByZipcode(this.zipcode).subscribe(weatherLocation => {
+      this.weatherLocation = weatherLocation;
+    });
+  }
+
+  public removeWeatherLocation(): void {
+    this.weatherLocationRemovedEvent.emit(this.zipcode);
   }
 
 }

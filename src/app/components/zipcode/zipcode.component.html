@@ -1,14 +1,4 @@
 <app-zipcode-form (zipcodeAddedEvent)="addZipcode($event)"></app-zipcode-form>
 <div *ngFor="let savedZipcode of getSavedZipcodes()">
-    <div class="container-fluid">
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">{{savedZipcode}}</div>
-                <div class="panel-body">
-                    <div class="row">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <app-weather-per-zip [zipcode]="savedZipcode" (weatherLocationRemovedEvent)="removeZipCode($event)"></app-weather-per-zip>
 </div>
