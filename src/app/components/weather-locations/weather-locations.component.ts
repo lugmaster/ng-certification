@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
-  selector: 'app-zipcode',
-  templateUrl: './zipcode.component.html',
-  styleUrls: ['./zipcode.component.css']
+  selector: 'app-weather-locations',
+  templateUrl: './weather-locations.component.html',
+  styleUrls: ['./weather-locations.component.css']
 })
-export class ZipcodeComponent implements OnInit {
+export class WeatherLocationsComponent implements OnInit {
 
   private savedZipcodes: number[] = [];
 
