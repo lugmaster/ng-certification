@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <form [formGroup]="zipcodeForm">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Add a location</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <label for="addZipcode" class="col-md-6" style="font-size:x-large;">Enter a zipcode:</label>
+                    </div>
+                    <div class="input-group">
+                        <input class="form-control" formControlName="zipcode" id="addZipcode"
+                               placeholder="Add a zipcode here ..."
+                               type="text">
+                        <span class="input-group-btn">
+                            <button (click)="submitZipcode()" class="btn btn-primary">
+                                Add
+                            </button>
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
