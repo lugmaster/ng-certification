@@ -1,41 +1,43 @@
 <div class="container-fluid">
-    <div class="col-md-6">
-        <div class="panel panel-primary" *ngIf="weatherLocation; else nothingFound">
-            <div class="panel-heading">
-                {{zipcode + ' - ' + weatherLocation.name}}
-                <span (click)="removeWeatherLocation()" class="close">×</span>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-6 column-row">
-                        <div class="row">
-                            <span>{{'Current conditions: ' + weatherLocation.weatherCondition}} </span>
-                        </div>
-                        <div class="row">
-                            <span>{{'Temperature: ' + weatherLocation.temperature}} </span>
-                        </div>
-                        <div class="row">
-                            <span>{{'Max today : ' + weatherLocation.maxTemperature + '  -  Min today:' + weatherLocation.minTemperature}} </span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 pull-right">
-                        <app-weather-condition-image [iconKey]="weatherLocation.weatherConditionIcon" [size]="4"></app-weather-condition-image>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <ng-template #nothingFound>
-            <div class="panel panel-primary">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-primary" *ngIf="weatherLocation; else nothingFound">
                 <div class="panel-heading">
-                    {{zipcode}} - N/A
+                    {{zipcode + ' - ' + weatherLocation.name}}
                     <span (click)="removeWeatherLocation()" class="close">×</span>
                 </div>
                 <div class="panel-body">
                     <div class="row">
+                        <div class="col-md-6 column-row">
+                            <div class="row">
+                                <span>{{'Current conditions: ' + weatherLocation.weatherCondition}} </span>
+                            </div>
+                            <div class="row">
+                                <span>{{'Temperature: ' + weatherLocation.temperature}} </span>
+                            </div>
+                            <div class="row">
+                                <span>{{'Max today : ' + weatherLocation.maxTemperature + '  -  Min today:' + weatherLocation.minTemperature}} </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pull-right">
+                            <app-weather-condition-image [iconKey]="weatherLocation.weatherConditionIcon"
+                                                         [size]="25"></app-weather-condition-image>
+                        </div>
                     </div>
                 </div>
             </div>
-        </ng-template>
+            <ng-template #nothingFound>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        {{zipcode}} - N/A
+                        <span (click)="removeWeatherLocation()" class="close">×</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
     </div>
 </div>
-

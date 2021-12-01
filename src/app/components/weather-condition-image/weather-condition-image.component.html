@@ -1,1 +1,4 @@
-<img src="{{'https://www.angulartraining.com/images/weather/' + iconName + '.png'}}"  alt="" [ngClass]='"img-responsive col-md-" + size + " pull-right"'>
+<div class="row">
+    <img src="{{'https://www.angulartraining.com/images/weather/' + iconName + '.png'}}" alt=""
+         class="img-responsive col-md-8 pull-right" [ngStyle]="{ 'width': size + '%' }" >
+</div>

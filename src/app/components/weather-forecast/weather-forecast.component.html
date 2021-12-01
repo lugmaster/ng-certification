@@ -1,40 +1,47 @@
 <div class="container-fluid">
-    <div class="col-md-6">
-        <div class="panel panel-primary" *ngIf="weatherForecastContainer; else nothingFound">
-            <div class="panel-heading">
-                {{weatherForecastContainer.name + '(' + zipcode + ')'}}
-            </div>
-            <div class="panel-body">
-                <div class="row" *ngFor="let forecast of weatherForecastContainer.weatherForecasts">
-                    <div class="col-md-6 column-row">
-                        {{(forecast.dateInMilliSeconds | date:'EEEE')
-                            + ': ' + forecast.weatherCondition
-                            + ' - High:' + forecast.maxTemperature
-                            + ' - Low:' + forecast.minTemperature
-                        }}
-                    </div>
-                    <div class="col-md-6 pull-right">
-                        <app-weather-condition-image [iconKey]="forecast.weatherConditionIcon" [size]="2"></app-weather-condition-image>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <ng-template #nothingFound>
-            <div class="panel panel-primary">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-primary" *ngIf="weatherForecastContainer; else nothingFound">
                 <div class="panel-heading">
-                    {{zipcode}} - N/A
+                    {{weatherForecastContainer.name + '(' + zipcode + ')'}}
                 </div>
                 <div class="panel-body">
-                    <div class="row">
+                    <div class="row" *ngFor="let forecast of weatherForecastContainer.weatherForecasts">
+                        <div class="col-md-6 column-row">
+                            {{(forecast.dateInMilliSeconds | date:'EEEE')
+                        + ': ' + forecast.weatherCondition
+                        + ' - High:' + forecast.maxTemperature
+                        + ' - Low:' + forecast.minTemperature
+                            }}
+                        </div>
+                        <div class="col-md-6">
+                            <app-weather-condition-image [iconKey]="forecast.weatherConditionIcon"
+                                                         [size]="15"></app-weather-condition-image>
+                        </div>
                     </div>
                 </div>
             </div>
-        </ng-template>
+            <ng-template #nothingFound>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        {{zipcode}} - N/A
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
     </div>
 </div>
 <div class="container-fluid">
-    <div class="col-md-6">
-        <a routerLink="/weather"><button class="btn btn-primary pull-right">Back to Main</button></a>
+    <div class="row">
+        <div class="col-md-8">
+            <a routerLink="/weather">
+                <button class="btn btn-primary pull-right">Back to Main</button>
+            </a>
+        </div>
     </div>
 </div>
 
