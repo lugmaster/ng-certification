@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
-import {ZipcodeComponent} from './components/zipcode/zipcode.component';
+import {WeatherLocationInfoComponent} from './components/weather-per-zip/weather-location-info/weather-location-info.component';
 
 const routes: Routes = [
-  { path: 'zipcode', component: ZipcodeComponent},
-  { path: '',   redirectTo: '/zipcode', pathMatch: 'full' },
+  { path: 'weather', component: WeatherLocationInfoComponent},
+  { path: '',   redirectTo: '/weather', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
