@@ -18,6 +18,9 @@
                     <div style="color:red" *ngIf="zipcodeForm.dirty && zipcodeForm.invalid">
                         Only 5 digit zipcodes allowed, e.g. 10006
                     </div>
+                    <div style="color:red" *ngIf="zipCodeAlreadyAdded">
+                        Zipcode already added
+                    </div>
                 </div>
             </div>
         </div>

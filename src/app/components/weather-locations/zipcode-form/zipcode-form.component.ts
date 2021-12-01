@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ZipcodeFormComponent {
 
     zipcodeForm: FormGroup;
+
+    @Input() zipCodeAlreadyAdded: boolean = false;
 
     @Output() zipcodeAddedEvent = new EventEmitter<number>();
 

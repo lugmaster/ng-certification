@@ -1,4 +1,4 @@
-<app-zipcode-form (zipcodeAddedEvent)="addZipcode($event)"></app-zipcode-form>
+<app-zipcode-form [zipCodeAlreadyAdded]="alreadyAdded" (zipcodeAddedEvent)="addZipcode($event)"></app-zipcode-form>
 <div *ngFor="let savedZipcode of getSavedZipcodes()">
   <app-weather-location-info [zipcode]="savedZipcode" (weatherLocationRemovedEvent)="removeZipCode($event)"></app-weather-location-info>
 </div>
