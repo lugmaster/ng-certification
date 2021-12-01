@@ -7,7 +7,7 @@
             <div class="panel-body">
                 <div class="row" *ngFor="let forecast of weatherForecastContainer.weatherForecasts">
                     <div class="col-md-6 column-row">
-                        {{(forecast.dateInMilliSeconds | date:'EEEE, MMM d')
+                        {{(forecast.dateInMilliSeconds | date:'EEEE')
                             + ': ' + forecast.weatherCondition
                             + ' - High:' + forecast.maxTemperature
                             + ' - Low:' + forecast.minTemperature
@@ -30,6 +30,11 @@
                 </div>
             </div>
         </ng-template>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="col-md-6">
+        <a routerLink="/weather"><button class="btn btn-primary pull-right">Back to Main</button></a>
     </div>
 </div>
 
