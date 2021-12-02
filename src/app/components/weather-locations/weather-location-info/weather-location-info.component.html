@@ -18,6 +18,11 @@
                             <div class="row">
                                 <span>{{'Max today : ' + weatherLocation.maxTemperature + '  -  Min today:' + weatherLocation.minTemperature}} </span>
                             </div>
+                            <div class="row">
+                                <a routerLink="/forecast/{{zipcode}}">
+                                    <button class="btn btn-primary">5-day Forecast</button>
+                                </a>
+                            </div>
                         </div>
                         <div class="col-md-6 pull-right">
                             <app-weather-condition-image [iconKey]="weatherLocation.weatherConditionIcon"
